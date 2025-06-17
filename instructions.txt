@@ -1,0 +1,14 @@
+Frontend
+
+npm install
+npm run dev
+
+Backend
+
+npm install
+npm run dev
+
+Microservice
+
+pip install -r requirements.txt
+python app.py
