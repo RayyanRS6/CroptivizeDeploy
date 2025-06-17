@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  /* White */
+  --foreground: oklch(0.145 0 0);
+  /* Dark text */
+
+  /* Primary green */
+  --primary: oklch(0.48 0.123 146.51);
+  /* #0C6837 */
+  --primary-foreground: oklch(1 0 0);
+  /* White text on primary */
+
+  /* Lighter green for secondary */
+  --secondary: oklch(0.97 0.02 146.51);
+  --secondary-foreground: oklch(0.48 0.123 146.51);
+
+  /* Card and popover */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+
+  /* Muted and accent (subtle greens) */
+  --muted: oklch(0.97 0.02 146.51);
+  --muted-foreground: oklch(0.556 0.05 146.51);
+  --accent: oklch(0.94 0.03 146.51);
+  --accent-foreground: oklch(0.48 0.123 146.51);
+
+  /* Destructive (keep red for warnings) */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+
+  /* Borders and inputs */
+  --border: oklch(0.922 0.02 146.51);
+  --input: oklch(0.922 0.02 146.51);
+  --ring: oklch(0.48 0.123 146.51);
+
+  /* Chart colors - green palette */
+  --chart-1: oklch(0.48 0.123 146.51);
+  /* Primary green */
+  --chart-2: oklch(0.65 0.12 155.51);
+  /* Sage green */
+  --chart-3: oklch(0.72 0.11 165.51);
+  /* Mint green */
+  --chart-4: oklch(0.55 0.13 135.51);
+  /* Forest green */
+  --chart-5: oklch(0.63 0.12 125.51);
+  /* Olive green */
+
+  /* Border radius */
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50
+  }
+
+  body {
+    @apply bg-background text-foreground
+  }
+
+  .resultContScroll {
+    @apply overflow-y-auto pr-4;
+    scrollbar-width: thin;
+    /* For Firefox */
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+    /* For Firefox */
+  }
+
+  .resultContScroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .resultContScroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .resultContScroll::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  .resultContScroll::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
